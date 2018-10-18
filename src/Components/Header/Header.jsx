@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react';
+import {
+  Row,
+  Col,
+} from 'antd';
+import 'antd/dist/antd.css';
+import './Header.css';
 
-export default class Header extends Component {
-  render() {
-    return (
-      <div>
-        Header
-      </div>
-    )
-  }
-}
+const Header = () => (
+  <Row>
+    <Col span={24} className="header-col">
+      <p className="header-text">Store Products</p>
+    </Col>
+  </Row>
+);
+
+export default Header;

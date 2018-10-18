@@ -1,0 +1,10 @@
+.header-col {
+  background-color: #BDD7F3;
+}
+
+.header-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: #666666;
+  padding: 2vh 0 0 3vw;
+}
