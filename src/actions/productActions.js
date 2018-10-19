@@ -8,9 +8,9 @@ export function addProduct(product) {
   };
 }
 
-export function removeProduct(id) {
+export function removeProduct(name) {
   return {
     type: REMOVE_PRODUCT,
-    payload: id,
+    payload: name,
   };
 }
