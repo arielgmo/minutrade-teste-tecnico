@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_STORES_START = 'FETCH_STORES_START';
-export const FETCH_STORES_SUCESSFUL = 'FETCH_STORES_SUCESSFUL';
+export const FETCH_STORES_SUCCESSFUL = 'FETCH_STORES_SUCCESSFUL';
 export const FETCH_STORES_FAILED = 'FETCH_STORES_FAILED';
 
 export function fetchStart() {
@@ -10,9 +10,9 @@ export function fetchStart() {
   };
 }
 
-export function fetchSucessful(data) {
+export function fetchSuccessful(data) {
   return {
-    type: FETCH_STORES_SUCESSFUL,
+    type: FETCH_STORES_SUCCESSFUL,
     payload: data,
   };
 }
@@ -27,11 +27,12 @@ export function fetchFailed(status) {
 export function fetchStores() {
   return (dispatch) => {
     dispatch(fetchStart());
-    const response = axios.get('https://plausible-nitrogen.glitch.me/addresses')
-      .then(res => res);
-    if (response.data !== null && response.data !== undefined) {
-      return dispatch(fetchSucessful(response.data));
-    }
-    return dispatch(fetchFailed(response.status));
+    return axios.get('https://plausible-nitrogen.glitch.me/addresses')
+      .then((response) => {
+        if (response.data !== null && response.data !== undefined) {
+          return fetchSuccessful(response.data);
+        }
+        return fetchFailed(response.status);
+      });
   };
 }
