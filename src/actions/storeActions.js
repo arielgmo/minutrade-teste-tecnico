@@ -27,12 +27,12 @@ export function fetchFailed(status) {
 export function fetchStores() {
   return (dispatch) => {
     dispatch(fetchStart());
-    return axios.get('https://plausible-nitrogen.glitch.me/addresses')
+    axios.get('https://plausible-nitrogen.glitch.me/addresses')
       .then((response) => {
         if (response.data !== null && response.data !== undefined) {
-          return fetchSuccessful(response.data);
+          return dispatch(fetchSuccessful(response.data));
         }
-        return fetchFailed(response.status);
+        return dispatch(fetchFailed(response.status));
       });
   };
 }
