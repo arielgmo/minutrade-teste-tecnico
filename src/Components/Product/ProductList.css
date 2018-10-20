@@ -1,0 +1,21 @@
+.card-container {
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 400px;
+}
+
+.product-image {
+  height: 200px;
+}
+
+.product-description {
+  font-size: 12px;
+  overflow: hidden;
+  height: 50px;
+}
+
+.products-title{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}

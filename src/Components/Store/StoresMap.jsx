@@ -5,6 +5,8 @@ import {
   Marker,
   Popup,
 } from 'react-leaflet';
+import { Card } from 'antd';
+import 'antd/dist/antd.css';
 import PropTypes from 'prop-types';
 import Geocode from 'react-geocode';
 import { connect } from 'react-redux';
@@ -52,19 +54,23 @@ class StoresMap extends Component {
   render() {
     const { storeReducer } = this.props;
     return (
-      <div>
-        <p>Our stores locations</p>
-        <Map
-          center={[-23.5486, -46.6392]}
-          zoom={zoomLevel}
-          className="map-container"
+      <div className="store-map-container">
+        <Card
+          title={<p className="store-map-title">Our stores locations</p>}
+          className="map-inner-container"
         >
-          <TileLayer
-            attribution={tonerAttr}
-            url={tonerTiles}
-          />
-          {this.getMarkers(storeReducer)}
-        </Map>
+          <Map
+            center={[-23.5486, -46.6392]}
+            zoom={zoomLevel}
+            className="map-container"
+          >
+            <TileLayer
+              attribution={tonerAttr}
+              url={tonerTiles}
+            />
+            {this.getMarkers(storeReducer)}
+          </Map>
+        </Card>
       </div>
     );
   }
